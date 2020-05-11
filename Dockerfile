@@ -32,7 +32,7 @@ RUN dotnet help
 
 USER jenkins
 
-RUN dotnet tool install --global dotnet-sonarscanner
+RUN dotnet tool install --global dotnet-sonarscanner --version 4.9.0
 RUN echo '#!/bin/bash\n\
 cat << \EOF >> ~/.bash_profile\n\
 export PATH="$PATH:/home/jenkins/.dotnet/tools"\n\
