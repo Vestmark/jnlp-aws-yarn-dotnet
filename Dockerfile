@@ -27,9 +27,6 @@ RUN curl -SL --output dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Sdk/$
 	&& rm dotnet.tar.gz \
 	&& ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 
-# Trigger first run experience by running arbitrary cmd to populate local package cache
-RUN dotnet help
-
 USER jenkins
 
 RUN dotnet tool install --global dotnet-sonarscanner --version 4.9.0
