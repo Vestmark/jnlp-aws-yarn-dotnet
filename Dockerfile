@@ -31,12 +31,4 @@ RUN curl -SL --output dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Sdk/$
 
 USER jenkins
 
-RUN dotnet tool install --global dotnet-sonarscanner
-RUN echo '#!/bin/bash\n\
-cat << \EOF >> ~/.bash_profile\n\
-export PATH="$PATH:/home/root/.dotnet/tools"\n\
-EOF\n'\
-> ~/updatePath.sh
-RUN chmod a+x updatePath.sh
-RUN ./updatePath.sh
-RUN rm ./updatePath.sh
+ENV PATH="/home/root/.dotnet/tools:${PATH}"
