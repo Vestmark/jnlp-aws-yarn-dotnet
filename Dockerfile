@@ -1,4 +1,4 @@
-FROM john0879/jnlp-aws-yarn
+FROM vestmarkorg/jnlp-aws-yarn
 
 USER root
 
