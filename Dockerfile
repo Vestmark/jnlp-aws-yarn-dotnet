@@ -21,8 +21,8 @@ RUN apt-get update \
 ENV DOTNET_SDK_VERSION 3.1.302
 ENV DOTNET_SKIP_FIRST_TIME_EXPERIENCE true
 
-RUN curl -SL --output dotnet.tar.gz https://download.visualstudio.microsoft.com/download/pr/c505a449-9ecf-4352-8629-56216f521616/bd6807340faae05b61de340c8bf161e8/dotnet-sdk-6.0.201-linux-x64.tar.gz \
-	&& dotnet_sha512='a4d96b6ca2abb7d71cc2c64282f9bd07cedc52c03d8d6668346ae0cd33a9a670d7185ab0037c8f0ecd6c212141038ed9ea9b19a188d1df2aae10b2683ce818ce' \
+RUN curl -SL --output dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz \
+	&& dotnet_sha512='a270c150d53eafbb67d294aecd27584b517077b6555d93d1dd933f4209affdda58cae112a50b3a56eeef63e635b5c5d1933f4852a92e760282c7619d2454edbe' \
 	&& echo "$dotnet_sha512 dotnet.tar.gz" | sha512sum -c - \
 	&& mkdir -p /usr/share/dotnet \
 	&& tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
